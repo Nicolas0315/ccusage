@@ -31,8 +31,8 @@ if (import.meta.vitest != null) {
 			vi.stubEnv(CLAUDE_CONFIG_DIR_ENV, '/tmp/claude-a, ,/tmp/claude-b,');
 
 			expect(getClaudeProjectPaths()).toEqual([
-				path.join('/tmp/claude-a', CLAUDE_PROJECTS_DIR_NAME),
-				path.join('/tmp/claude-b', CLAUDE_PROJECTS_DIR_NAME),
+				path.join(path.resolve('/tmp/claude-a'), CLAUDE_PROJECTS_DIR_NAME),
+				path.join(path.resolve('/tmp/claude-b'), CLAUDE_PROJECTS_DIR_NAME),
 			]);
 		});
 	});

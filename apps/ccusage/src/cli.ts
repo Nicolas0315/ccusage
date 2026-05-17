@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { spawn } from 'node:child_process';
 import { accessSync, constants, statSync } from 'node:fs';
-import { delimiter, dirname, join } from 'node:path';
+import { dirname, join, posix } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { CCUSAGE_BUN_AUTO_RUN_DISABLED_VALUE, CCUSAGE_BUN_AUTO_RUN_ENV } from './env.ts';
@@ -54,12 +54,14 @@ function findExecutableInPath(
 	}
 
 	const executableNames = getExecutableNames(command, platform, pathExt);
-	for (const directory of pathValue.split(delimiter)) {
+	const pathDelimiter = platform === 'win32' ? ';' : ':';
+	for (const directory of pathValue.split(pathDelimiter)) {
 		if (directory.length === 0) {
 			continue;
 		}
 		for (const executableName of executableNames) {
-			const executablePath = join(directory, executableName);
+			const executablePath =
+				platform === 'win32' ? join(directory, executableName) : posix.join(directory, executableName);
 			if (isExecutablePath(executablePath)) {
 				return executablePath;
 			}
@@ -182,7 +184,7 @@ if (import.meta.vitest != null) {
 					processExecPath: '/usr/bin/node',
 				}),
 			).toEqual({
-				args: ['/app/dist/main.bun.js', 'daily'],
+				args: [join('/app/dist', 'main.bun.js'), 'daily'],
 				command: '/usr/local/bin/bun',
 			});
 		});

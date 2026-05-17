@@ -34,21 +34,21 @@ import { getTotalTokens } from '../token-utils.ts';
  */
 function formatBlockTime(block: SessionBlock, compact = false): string {
 	const start = compact
-		? block.startTime.toLocaleString(undefined, {
+		? block.startTime.toLocaleString('en-US', {
 				month: '2-digit',
 				day: '2-digit',
 				hour: '2-digit',
 				minute: '2-digit',
 			})
-		: block.startTime.toLocaleString();
+		: block.startTime.toLocaleString('en-US');
 
 	if (block.isGap ?? false) {
 		const end = compact
-			? block.endTime.toLocaleString(undefined, {
+			? block.endTime.toLocaleString('en-US', {
 					hour: '2-digit',
 					minute: '2-digit',
 				})
-			: block.endTime.toLocaleString();
+			: block.endTime.toLocaleString('en-US');
 		const duration = Math.round(
 			(block.endTime.getTime() - block.startTime.getTime()) / (1000 * 60 * 60),
 		);

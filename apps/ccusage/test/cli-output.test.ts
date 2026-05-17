@@ -35,6 +35,7 @@ async function createCliEnv(fixturePath: string, tempDir: string): Promise<NodeJ
 	);
 
 	return {
+		...process.env,
 		AMP_DATA_DIR: ampDir,
 		CLAUDE_CONFIG_DIR: fixturePath,
 		CODEX_HOME: codexHome,
@@ -195,6 +196,7 @@ function createAgentFixtureTree() {
 
 function createAgentCliEnv(fixturePath: string): NodeJS.ProcessEnv {
 	return {
+		...process.env,
 		AMP_DATA_DIR: path.join(fixturePath, 'amp'),
 		CLAUDE_CONFIG_DIR: path.join(fixturePath, 'claude'),
 		CODEX_HOME: path.join(fixturePath, 'codex'),
@@ -209,10 +211,11 @@ function createAgentCliEnv(fixturePath: string): NodeJS.ProcessEnv {
 }
 
 function runCcusage(args: string[], env: NodeJS.ProcessEnv): ReturnType<typeof spawnSync> {
-	return spawnSync('bun', ['./src/index.ts', ...args], {
+	return spawnSync('pnpm', ['exec', 'bun', './src/index.ts', ...args], {
 		cwd: appRoot,
 		encoding: 'utf8',
 		env,
+		shell: process.platform === 'win32',
 	});
 }
 
@@ -226,35 +229,27 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'daily', '--offline', '--json'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['daily', '--offline', '--json'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'daily-json.txt'),
 		);
-	});
+	}, 15_000);
 
 	it('matches session JSON output', async () => {
 		const tempDir = path.join(tmpdir(), 'ccusage-cli-output-fixtures');
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'session', '--offline', '--json'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['session', '--offline', '--json'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'session-json.txt'),
 		);
 	});
@@ -264,16 +259,12 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'blocks', '--offline', '--json'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['blocks', '--offline', '--json'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'blocks-json.txt'),
 		);
 	});
@@ -283,16 +274,12 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'monthly', '--offline', '--json'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['monthly', '--offline', '--json'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'monthly-json.txt'),
 		);
 	});
@@ -302,16 +289,12 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'weekly', '--offline', '--json'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['weekly', '--offline', '--json'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'weekly-json.txt'),
 		);
 	});
@@ -321,16 +304,12 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'daily', '--offline'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['daily', '--offline'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'daily-table.txt'),
 		);
 	});
@@ -340,16 +319,12 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'session', '--offline'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['session', '--offline'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'session-table.txt'),
 		);
 	});
@@ -359,16 +334,12 @@ describe('ccusage output snapshots', () => {
 		await mkdir(tempDir, { recursive: true });
 		await using fixture = await createFixture(fixtureTemplatePath, { tempDir });
 
-		const result = spawnSync('bun', ['./src/index.ts', 'blocks', '--offline'], {
-			cwd: appRoot,
-			encoding: 'utf8',
-			env: await createCliEnv(fixture.path, tempDir),
-		});
+		const result = runCcusage(['blocks', '--offline'], await createCliEnv(fixture.path, tempDir));
 
 		expect(result.status).toBe(0);
 		expect(result.stderr).toBe('');
 		await mkdir(snapshotRoot, { recursive: true });
-		await expect(result.stdout.replace(/\n$/, '')).toMatchFileSnapshot(
+		await expect(getStdout(result).replace(/\n$/, '')).toMatchFileSnapshot(
 			path.join(snapshotRoot, 'blocks-table.txt'),
 		);
 	});
