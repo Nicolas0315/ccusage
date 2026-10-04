@@ -91,3 +91,7 @@ allowBuilds:
   workerd: true
 
 shellEmulator: true
+
+# tar 6 permits unbounded archive expansion (GHSA-23hp-3jrh-7fpw).
+overrides:
+  'tar@>=6 <7': '7.5.22'
