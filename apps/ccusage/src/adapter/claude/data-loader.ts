@@ -4889,7 +4889,7 @@ invalid json line
 					timestamp: '2024-01-17T11:00:00Z',
 					message: {
 						usage: { input_tokens: 200, output_tokens: 100 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 
@@ -4958,7 +4958,7 @@ invalid json line
 					timestamp: '2024-01-16T10:00:00Z',
 					message: {
 						usage: { input_tokens: 2000, output_tokens: 1000 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 
@@ -5029,7 +5029,7 @@ invalid json line
 							cache_creation_input_tokens: 2000,
 							cache_read_input_tokens: 1500,
 						},
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 
@@ -5106,7 +5106,7 @@ invalid json line
 					timestamp: '2024-01-01T11:00:00Z',
 					message: {
 						usage: { input_tokens: 2000, output_tokens: 1000 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 
@@ -5134,7 +5134,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					costUSD: 99.99, // This should be ignored
 				};
@@ -5164,7 +5164,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					costUSD: 0.05,
 				};
@@ -5173,7 +5173,7 @@ invalid json line
 					timestamp: '2024-01-01T11:00:00Z',
 					message: {
 						usage: { input_tokens: 2000, output_tokens: 1000 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					// No costUSD - should result in 0 cost
 				};
@@ -5202,7 +5202,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					costUSD: 99.99,
 				};
@@ -5239,7 +5239,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					costUSD: 0.05,
 				};
@@ -5269,7 +5269,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					costUSD: 0.05,
 				};
@@ -5300,7 +5300,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					// No costUSD, so auto mode will need to calculate
 				};
@@ -5330,7 +5330,7 @@ invalid json line
 					timestamp: createISOTimestamp('2024-01-01T10:00:00Z'),
 					message: {
 						usage: { input_tokens: 1000, output_tokens: 500 },
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 					costUSD: 0.05,
 				};
@@ -5439,7 +5439,7 @@ invalid json line
 							input_tokens: 1000,
 							output_tokens: 500,
 						},
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 
@@ -5486,7 +5486,7 @@ invalid json line
 							input_tokens: 1000,
 							output_tokens: 500,
 						},
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 
@@ -5512,7 +5512,7 @@ invalid json line
 							input_tokens: 1000,
 							output_tokens: 500,
 						},
-						model: createModelName('claude-4-sonnet-20250514'),
+						model: createModelName('claude-sonnet-4-20250514'),
 					},
 				};
 

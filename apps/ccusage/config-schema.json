@@ -86,7 +86,11 @@
 								},
 								"mode": {
 									"type": "string",
-									"enum": ["auto", "calculate", "display"],
+									"enum": [
+										"auto",
+										"calculate",
+										"display"
+									],
 									"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"default": "auto"
@@ -105,7 +109,10 @@
 								},
 								"order": {
 									"type": "string",
-									"enum": ["desc", "asc"],
+									"enum": [
+										"desc",
+										"asc"
+									],
 									"description": "Sort order: desc (newest first) or asc (oldest first)",
 									"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 									"default": "asc"
@@ -148,6 +155,22 @@
 									"description": "Force compact table layout for narrow terminals",
 									"markdownDescription": "Force compact table layout for narrow terminals",
 									"default": false
+								},
+								"remoteHost": {
+									"type": "string",
+									"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+									"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+								},
+								"remoteTailscale": {
+									"type": "boolean",
+									"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"default": false
+								},
+								"remoteTmp": {
+									"type": "string",
+									"description": "Override the temp directory used when extracting remote Claude logs.",
+									"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
 								},
 								"instances": {
 									"type": "boolean",
@@ -195,7 +218,11 @@
 								},
 								"mode": {
 									"type": "string",
-									"enum": ["auto", "calculate", "display"],
+									"enum": [
+										"auto",
+										"calculate",
+										"display"
+									],
 									"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"default": "auto"
@@ -214,7 +241,10 @@
 								},
 								"order": {
 									"type": "string",
-									"enum": ["desc", "asc"],
+									"enum": [
+										"desc",
+										"asc"
+									],
 									"description": "Sort order: desc (newest first) or asc (oldest first)",
 									"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 									"default": "asc"
@@ -257,6 +287,22 @@
 									"description": "Force compact table layout for narrow terminals",
 									"markdownDescription": "Force compact table layout for narrow terminals",
 									"default": false
+								},
+								"remoteHost": {
+									"type": "string",
+									"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+									"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+								},
+								"remoteTailscale": {
+									"type": "boolean",
+									"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"default": false
+								},
+								"remoteTmp": {
+									"type": "string",
+									"description": "Override the temp directory used when extracting remote Claude logs.",
+									"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
 								},
 								"all": {
 									"type": "boolean",
@@ -288,7 +334,11 @@
 								},
 								"mode": {
 									"type": "string",
-									"enum": ["auto", "calculate", "display"],
+									"enum": [
+										"auto",
+										"calculate",
+										"display"
+									],
 									"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"default": "auto"
@@ -307,7 +357,10 @@
 								},
 								"order": {
 									"type": "string",
-									"enum": ["desc", "asc"],
+									"enum": [
+										"desc",
+										"asc"
+									],
 									"description": "Sort order: desc (newest first) or asc (oldest first)",
 									"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 									"default": "asc"
@@ -350,6 +403,22 @@
 									"description": "Force compact table layout for narrow terminals",
 									"markdownDescription": "Force compact table layout for narrow terminals",
 									"default": false
+								},
+								"remoteHost": {
+									"type": "string",
+									"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+									"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+								},
+								"remoteTailscale": {
+									"type": "boolean",
+									"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"default": false
+								},
+								"remoteTmp": {
+									"type": "string",
+									"description": "Override the temp directory used when extracting remote Claude logs.",
+									"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
 								},
 								"startOfWeek": {
 									"type": "string",
@@ -396,7 +465,11 @@
 								},
 								"mode": {
 									"type": "string",
-									"enum": ["auto", "calculate", "display"],
+									"enum": [
+										"auto",
+										"calculate",
+										"display"
+									],
 									"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"default": "auto"
@@ -452,6 +525,22 @@
 									"markdownDescription": "Force compact table layout for narrow terminals",
 									"default": false
 								},
+								"remoteHost": {
+									"type": "string",
+									"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+									"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+								},
+								"remoteTailscale": {
+									"type": "boolean",
+									"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"default": false
+								},
+								"remoteTmp": {
+									"type": "string",
+									"description": "Override the temp directory used when extracting remote Claude logs.",
+									"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
+								},
 								"id": {
 									"type": "string",
 									"description": "Load usage data for a specific session ID",
@@ -487,7 +576,11 @@
 								},
 								"mode": {
 									"type": "string",
-									"enum": ["auto", "calculate", "display"],
+									"enum": [
+										"auto",
+										"calculate",
+										"display"
+									],
 									"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 									"default": "auto"
@@ -506,7 +599,10 @@
 								},
 								"order": {
 									"type": "string",
-									"enum": ["desc", "asc"],
+									"enum": [
+										"desc",
+										"asc"
+									],
 									"description": "Sort order: desc (newest first) or asc (oldest first)",
 									"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 									"default": "asc"
@@ -550,6 +646,22 @@
 									"markdownDescription": "Force compact mode for narrow displays (better for screenshots)",
 									"default": false
 								},
+								"remoteHost": {
+									"type": "string",
+									"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+									"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+								},
+								"remoteTailscale": {
+									"type": "boolean",
+									"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+									"default": false
+								},
+								"remoteTmp": {
+									"type": "string",
+									"description": "Override the temp directory used when extracting remote Claude logs.",
+									"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
+								},
 								"active": {
 									"type": "boolean",
 									"description": "Show only active block with projections",
@@ -587,14 +699,24 @@
 								},
 								"visualBurnRate": {
 									"type": "string",
-									"enum": ["off", "emoji", "text", "emoji-text"],
+									"enum": [
+										"off",
+										"emoji",
+										"text",
+										"emoji-text"
+									],
 									"description": "Controls the visualization of the burn rate status",
 									"markdownDescription": "Controls the visualization of the burn rate status",
 									"default": "off"
 								},
 								"costSource": {
 									"type": "string",
-									"enum": ["auto", "ccusage", "cc", "both"],
+									"enum": [
+										"auto",
+										"ccusage",
+										"cc",
+										"both"
+									],
 									"description": "Session cost source: auto (prefer CC then ccusage), ccusage (always calculate), cc (always use Claude Code cost), both (show both costs)",
 									"markdownDescription": "Session cost source: auto (prefer CC then ccusage), ccusage (always calculate), cc (always use Claude Code cost), both (show both costs)",
 									"default": "auto"
@@ -684,7 +806,11 @@
 										},
 										"mode": {
 											"type": "string",
-											"enum": ["auto", "calculate", "display"],
+											"enum": [
+												"auto",
+												"calculate",
+												"display"
+											],
 											"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"default": "auto"
@@ -703,7 +829,10 @@
 										},
 										"order": {
 											"type": "string",
-											"enum": ["desc", "asc"],
+											"enum": [
+												"desc",
+												"asc"
+											],
 											"description": "Sort order: desc (newest first) or asc (oldest first)",
 											"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 											"default": "asc"
@@ -746,6 +875,22 @@
 											"description": "Force compact mode for narrow displays (better for screenshots)",
 											"markdownDescription": "Force compact mode for narrow displays (better for screenshots)",
 											"default": false
+										},
+										"remoteHost": {
+											"type": "string",
+											"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+											"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+										},
+										"remoteTailscale": {
+											"type": "boolean",
+											"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"default": false
+										},
+										"remoteTmp": {
+											"type": "string",
+											"description": "Override the temp directory used when extracting remote Claude logs.",
+											"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
 										},
 										"instances": {
 											"type": "boolean",
@@ -787,7 +932,11 @@
 										},
 										"mode": {
 											"type": "string",
-											"enum": ["auto", "calculate", "display"],
+											"enum": [
+												"auto",
+												"calculate",
+												"display"
+											],
 											"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"default": "auto"
@@ -806,7 +955,10 @@
 										},
 										"order": {
 											"type": "string",
-											"enum": ["desc", "asc"],
+											"enum": [
+												"desc",
+												"asc"
+											],
 											"description": "Sort order: desc (newest first) or asc (oldest first)",
 											"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 											"default": "asc"
@@ -849,6 +1001,22 @@
 											"description": "Force compact mode for narrow displays (better for screenshots)",
 											"markdownDescription": "Force compact mode for narrow displays (better for screenshots)",
 											"default": false
+										},
+										"remoteHost": {
+											"type": "string",
+											"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+											"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+										},
+										"remoteTailscale": {
+											"type": "boolean",
+											"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"default": false
+										},
+										"remoteTmp": {
+											"type": "string",
+											"description": "Override the temp directory used when extracting remote Claude logs.",
+											"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
 										}
 									},
 									"additionalProperties": false
@@ -874,7 +1042,11 @@
 										},
 										"mode": {
 											"type": "string",
-											"enum": ["auto", "calculate", "display"],
+											"enum": [
+												"auto",
+												"calculate",
+												"display"
+											],
 											"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"default": "auto"
@@ -893,7 +1065,10 @@
 										},
 										"order": {
 											"type": "string",
-											"enum": ["desc", "asc"],
+											"enum": [
+												"desc",
+												"asc"
+											],
 											"description": "Sort order: desc (newest first) or asc (oldest first)",
 											"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 											"default": "asc"
@@ -936,6 +1111,22 @@
 											"description": "Force compact mode for narrow displays (better for screenshots)",
 											"markdownDescription": "Force compact mode for narrow displays (better for screenshots)",
 											"default": false
+										},
+										"remoteHost": {
+											"type": "string",
+											"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+											"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+										},
+										"remoteTailscale": {
+											"type": "boolean",
+											"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"default": false
+										},
+										"remoteTmp": {
+											"type": "string",
+											"description": "Override the temp directory used when extracting remote Claude logs.",
+											"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
 										},
 										"startOfWeek": {
 											"type": "string",
@@ -976,7 +1167,11 @@
 										},
 										"mode": {
 											"type": "string",
-											"enum": ["auto", "calculate", "display"],
+											"enum": [
+												"auto",
+												"calculate",
+												"display"
+											],
 											"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"default": "auto"
@@ -1032,6 +1227,22 @@
 											"markdownDescription": "Force compact mode for narrow displays (better for screenshots)",
 											"default": false
 										},
+										"remoteHost": {
+											"type": "string",
+											"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+											"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+										},
+										"remoteTailscale": {
+											"type": "boolean",
+											"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"default": false
+										},
+										"remoteTmp": {
+											"type": "string",
+											"description": "Override the temp directory used when extracting remote Claude logs.",
+											"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
+										},
 										"id": {
 											"type": "string",
 											"description": "Load usage data for a specific session ID",
@@ -1061,7 +1272,11 @@
 										},
 										"mode": {
 											"type": "string",
-											"enum": ["auto", "calculate", "display"],
+											"enum": [
+												"auto",
+												"calculate",
+												"display"
+											],
 											"description": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"markdownDescription": "Cost calculation mode: auto (use costUSD if exists, otherwise calculate), calculate (always calculate), display (always use costUSD)",
 											"default": "auto"
@@ -1080,7 +1295,10 @@
 										},
 										"order": {
 											"type": "string",
-											"enum": ["desc", "asc"],
+											"enum": [
+												"desc",
+												"asc"
+											],
 											"description": "Sort order: desc (newest first) or asc (oldest first)",
 											"markdownDescription": "Sort order: desc (newest first) or asc (oldest first)",
 											"default": "asc"
@@ -1124,6 +1342,22 @@
 											"markdownDescription": "Force compact mode for narrow displays (better for screenshots)",
 											"default": false
 										},
+										"remoteHost": {
+											"type": "string",
+											"description": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like.",
+											"markdownDescription": "Comma-separated SSH hosts to fetch Claude usage from (e.g. \"ca-20036826,ogosh@home-mac-main\"). Requires ssh and tar on the local machine; remote hosts must be Unix-like."
+										},
+										"remoteTailscale": {
+											"type": "boolean",
+											"description": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"markdownDescription": "Discover active Tailscale peers via \"tailscale status --json\" and fetch Claude usage from each over SSH.",
+											"default": false
+										},
+										"remoteTmp": {
+											"type": "string",
+											"description": "Override the temp directory used when extracting remote Claude logs.",
+											"markdownDescription": "Override the temp directory used when extracting remote Claude logs."
+										},
 										"active": {
 											"type": "boolean",
 											"description": "Show only active block with projections",
@@ -1161,14 +1395,24 @@
 										},
 										"visualBurnRate": {
 											"type": "string",
-											"enum": ["off", "emoji", "text", "emoji-text"],
+											"enum": [
+												"off",
+												"emoji",
+												"text",
+												"emoji-text"
+											],
 											"description": "Controls the visualization of the burn rate status",
 											"markdownDescription": "Controls the visualization of the burn rate status",
 											"default": "off"
 										},
 										"costSource": {
 											"type": "string",
-											"enum": ["auto", "ccusage", "cc", "both"],
+											"enum": [
+												"auto",
+												"ccusage",
+												"cc",
+												"both"
+											],
 											"description": "Session cost source: auto (prefer CC then ccusage), ccusage (always calculate), cc (always use Claude Code cost), both (show both costs)",
 											"markdownDescription": "Session cost source: auto (prefer CC then ccusage), ccusage (always calculate), cc (always use Claude Code cost), both (show both costs)",
 											"default": "auto"
